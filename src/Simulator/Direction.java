@@ -1,3 +1,5 @@
+package Simulator;
+
 public class Direction {
     private int direction;
     public Direction() {

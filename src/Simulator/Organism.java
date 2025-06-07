@@ -1,3 +1,5 @@
+package Simulator;
+
 import java.awt.*;
 
 public abstract class Organism

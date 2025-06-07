@@ -1,3 +1,5 @@
+package Simulator;
+
 import java.awt.*;
 import java.util.HashSet;
 import java.util.Random;
@@ -116,7 +118,7 @@ public class Board {
         this.board[newLocation.y][newLocation.x] = organism;
     }
 
-    // Returns spaces that are free for organisms to move to in order of priority described in Direction class
+    // Returns spaces that are free for organisms to move to in order of priority described in Simulator.Direction class
     public Point[] getAdjacentFreePoints(Organism organism)
     {
         Point[] adjacentPoints = getAdjacentPoints(organism);
@@ -131,7 +133,7 @@ public class Board {
         return adjacentFreePoints;
     }
 
-    // Returns organisms near organism according to priority directions described in Direction class
+    // Returns organisms near organism according to priority directions described in Simulator.Direction class
     public Organism[] getAdjacentOrganisms(Organism organism)
     {
         Point[] adjacentPoints = getAdjacentPoints(organism);
@@ -166,7 +168,7 @@ public class Board {
     }
 
     // returns array of the points in the direction of the organism that are on the
-    // board based on the priorities described in the Direction class
+    // board based on the priorities described in the Simulator.Direction class
     // none existing point is described using null
     private Point[] getAdjacentPoints(Organism organism) {
         Point[] adjacentPoints = {null, null, null, null};

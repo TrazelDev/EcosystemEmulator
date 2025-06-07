@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EcosystemEmulator.iml" filepath="$PROJECT_DIR$/EcosystemEmulator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EcosystemSimulator.iml" filepath="$PROJECT_DIR$/EcosystemSimulator.iml" />
     </modules>
   </component>
 </project>

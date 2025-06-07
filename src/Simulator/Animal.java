@@ -1,3 +1,5 @@
+package Simulator;
+
 import java.awt.*;
 
 abstract class Animal extends Organism implements I_AnimalAction

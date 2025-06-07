@@ -1,6 +1,10 @@
+package Simulator;
+
 import java.awt.*;
 
 public class Simulator {
+    public final static int DEFAULT_BOARD_ROWS = 10;
+    public final static int DEFAULT_BOARD_COLUMNS = 10;
     private final Board simBoard;
 
     public Simulator(int boardX, int boardY, int numOfCarnivores, int numOfHerbivores, int numOfPlants) {
@@ -9,11 +13,10 @@ public class Simulator {
         System.out.println("Starting board state:");
         simBoard.printBoard();
     }
-
     public void run(int numOfDays) {
         for (int i = 0; i < numOfDays; i++) {
             this.simBoard.iterateOrganisms(this::simulateOrganism);
-            System.out.println("\nBoard after day " + i + ":");
+            System.out.println("\nSimulator.Board after day " + i + ":");
             this.simBoard.printBoard();
         }
     }
