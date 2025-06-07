@@ -13,12 +13,25 @@ public class Simulator {
         System.out.println("Starting board state:");
         simBoard.printBoard();
     }
+
+    public Simulator(int numOfCarnivores, int numOfHerbivores, int numOfPlants) {
+        simBoard = new Board(DEFAULT_BOARD_ROWS, DEFAULT_BOARD_COLUMNS);
+        simBoard.placeOrganisms(numOfCarnivores, numOfHerbivores, numOfPlants);
+        System.out.println("Starting board state:");
+        simBoard.printBoard();
+    }
+
     public void run(int numOfDays) {
         for (int i = 0; i < numOfDays; i++) {
             this.simBoard.iterateOrganisms(this::simulateOrganism);
             System.out.println("\nSimulator.Board after day " + i + ":");
             this.simBoard.printBoard();
         }
+    }
+
+    public void runDay() {
+        this.simBoard.iterateOrganisms(this::simulateOrganism);
+        this.simBoard.printBoard();
     }
 
 
