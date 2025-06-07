@@ -13,6 +13,8 @@ public class Simulator {
         simBoard.placeOrganisms(numOfCarnivores, numOfHerbivores, numOfPlants);
         System.out.println("Starting board state:");
         simBoard.printBoard();
+
+        m_day = 0;
     }
 
     public Simulator(int numOfCarnivores, int numOfHerbivores, int numOfPlants)
@@ -31,11 +33,17 @@ public class Simulator {
         }
     }
 
-    public void runDay() {
+    public int runDay() {
         this.simBoard.iterateOrganisms(this::simulateOrganism);
         this.simBoard.printBoard();
+
+        m_day++;
+        return m_day;
     }
 
+    public Board getBoard() {
+        return this.simBoard;
+    }
 
     private void simulateOrganism(Organism organism)
     {
@@ -59,4 +67,6 @@ public class Simulator {
         if (newLocation != null)
             this.simBoard.relocateOrganism(animal, newLocation);
     }
+
+    private int m_day;
 }

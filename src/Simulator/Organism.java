@@ -16,4 +16,24 @@ public abstract class Organism
         name = ' ';
         this.location = location;
     }
+
+    public int getEnergy()
+    {
+        return energy;
+    }
+
+    public int getId()
+    {
+        return id;
+    }
+
+    public char getName()
+    {
+        return name;
+    }
+
+    public Point getLocation()
+    {
+        return location;
+    }
 }

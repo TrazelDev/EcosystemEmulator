@@ -4,15 +4,18 @@ import javafx.geometry.Pos;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Alert;
 
+import java.util.function.IntSupplier;
+import java.util.function.Supplier;
+
 public class UserControls extends VBox {
-    public UserControls(SimulatorCreator simulatorCreator) {
+    public UserControls(SimulatorCreator simulatorCreator, IntSupplier simulationRunNextDay) {
         super(10);
         this.setAlignment(Pos.CENTER);
 
         this.m_simulatorCreator = simulatorCreator;
         this.m_animalControls = new AnimalControls();
         this.getChildren().add(m_animalControls);
-        this.getChildren().add(new SimulationControls(this::createSimulation));
+        this.getChildren().add(new SimulationControls(this::createSimulation, simulationRunNextDay));
     }
 
     private void createSimulation() {
