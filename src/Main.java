@@ -25,7 +25,7 @@ public class Main extends Application {
         ApplicationWindow app = new ApplicationWindow();
 
         primaryStage.setTitle("Virtual Eco Simulator");
-        primaryStage.setScene(new Scene(app, 650, 650));
+        primaryStage.setScene(new Scene(app, 640, 700));
         primaryStage.show();
     }
 }
