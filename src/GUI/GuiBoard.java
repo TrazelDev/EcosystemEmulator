@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.BiFunction;
 
 public class GuiBoard extends GridPane {
     private static final int GRID_SIZE = 10;
@@ -37,7 +38,7 @@ public class GuiBoard extends GridPane {
             for (int col = 0; col < GRID_SIZE; col++) {
                 Node node = getNodeAt(row, col);
                 if (node instanceof ImageView) {
-                    ((ImageView)node).setImage(null);
+                    ((ImageView)node).setImage(s_animalToPic.get(' '));
                 }
             }
         }
@@ -71,11 +72,10 @@ public class GuiBoard extends GridPane {
     }
 
     private void initBoard() {
-        Image cellImage = s_animalToPic.get(' ');
-
         for (int row = 0; row < GRID_SIZE; row++) {
             for (int col = 0; col < GRID_SIZE; col++) {
                 ImageView imageView = new ImageView();
+                imageView.setImage(s_animalToPic.get(' '));
                 imageView.setFitWidth(CELL_SIZE);
                 imageView.setFitHeight(CELL_SIZE);
                 imageView.setPreserveRatio(false);
@@ -91,23 +91,20 @@ public class GuiBoard extends GridPane {
 
 
     private void showPopupMessage(ImageView imageView) {
-        // if (imageView.getImage() == null) {
-        //     // Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        //     // alert.setTitle("Empty Cell");
-        //     // alert.setHeaderText("Position: [" + row + ", " + col + "]");
-        //     // alert.setContentText("This cell is empty.");
-        //     // alert.showAndWait();
-        //     return;
-        // }
-
-        // Create the information popup
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Message");
         alert.setHeaderText("Message");
 
-        alert.setContentText("Or");
+        if (imageView.getImage() == s_animalToPic.get(' ')) {
+            alert.setContentText("This cell is empty.");
+            alert.showAndWait();
+            return;
+        }
+
+        alert.setContentText("There is an organism here");
         alert.showAndWait();
     }
+
 
     private static Map<Character, Image> s_animalToPic = new HashMap<Character, Image>() {{
         put(' ', new Image("/Resources/empty.jpg"));

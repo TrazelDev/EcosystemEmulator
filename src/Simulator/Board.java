@@ -106,6 +106,10 @@ public class Board {
         }
     }
 
+    public Organism getOrganismAt(Point p) {
+        return board[p.y][p.x];
+    }
+
     // Gets an organism and places it in another location on the board
     // if the location is null then it deletes the organism
     public void relocateOrganism(Organism organism, Point newLocation) {
