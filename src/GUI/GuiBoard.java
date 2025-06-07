@@ -14,18 +14,14 @@ public class GuiBoard extends GridPane {
         this.setGridLinesVisible(true);
 
         Image cellImage = null;
-
-
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
                 ImageView imageView = new ImageView();
                 imageView.setFitWidth(60);
                 imageView.setFitHeight(60);
-                imageView.setPreserveRatio(false); // Set to false if you want them to perfectly fill the square
-                // true maintains original aspect ratio within the cell
-                imageView.setSmooth(true); // Smoothens the image if scaled
+                imageView.setPreserveRatio(false);
+                imageView.setSmooth(true);
 
-                // Add the ImageView to the grid at the specified column and row
                 this.add(imageView, col, row);
             }
         }

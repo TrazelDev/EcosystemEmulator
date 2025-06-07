@@ -6,22 +6,26 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class AnimalControls extends HBox {
+    TextField m_numCarnivores;
+    TextField m_numHerbivores;
+    TextField m_numPlants;
+
     public AnimalControls() {
         super(10);
         this.setAlignment(Pos.CENTER);
 
-        TextField numCarnivores = new TextField("0");
-        TextField numHerbivores = new TextField("0");
-        TextField numPlants = new TextField("0");
+        m_numCarnivores = new TextField("0");
+        m_numHerbivores = new TextField("0");
+        m_numPlants = new TextField("0");
         Label label = new Label("Number of");
-        makeFieldIntegerOnly(numCarnivores);
-        makeFieldIntegerOnly(numHerbivores);
-        makeFieldIntegerOnly(numPlants);
+        makeFieldIntegerOnly(m_numCarnivores);
+        makeFieldIntegerOnly(m_numHerbivores);
+        makeFieldIntegerOnly(m_numPlants);
 
         this.getChildren().addAll(
-                new Label("Carnivores"), numCarnivores,
-                new Label("Herbivores"), numHerbivores,
-                new Label("Plants"), numPlants
+                new Label("Carnivores"), m_numCarnivores,
+                new Label("Herbivores"), m_numHerbivores,
+                new Label("Plants"), m_numPlants
         );
     }
 
@@ -32,4 +36,26 @@ public class AnimalControls extends HBox {
             }
         });
     }
+     
+    public int getNumCarnivores() {
+        if (m_numCarnivores.getText().isEmpty()) {
+            throw new IlegalOrganismInput();
+        }
+        return Integer.parseInt(m_numCarnivores.getText());
+    }
+
+    public int getNumHerbivores() {
+        if (m_numHerbivores.getText().isEmpty()) {
+            throw new IlegalOrganismInput();
+        }
+        return Integer.parseInt(m_numHerbivores.getText());
+    }
+
+    public int getNumPlants() {
+        if (m_numPlants.getText().isEmpty()) {
+            throw new IlegalOrganismInput();
+        }
+        return Integer.parseInt(m_numPlants.getText());
+    }
+
 }

@@ -7,14 +7,16 @@ public class Simulator {
     public final static int DEFAULT_BOARD_COLUMNS = 10;
     private final Board simBoard;
 
-    public Simulator(int boardX, int boardY, int numOfCarnivores, int numOfHerbivores, int numOfPlants) {
+    public Simulator(int boardX, int boardY, int numOfCarnivores, int numOfHerbivores, int numOfPlants)
+            throws BoardNotBigEnoughException {
         simBoard = new Board(boardX, boardY);
         simBoard.placeOrganisms(numOfCarnivores, numOfHerbivores, numOfPlants);
         System.out.println("Starting board state:");
         simBoard.printBoard();
     }
 
-    public Simulator(int numOfCarnivores, int numOfHerbivores, int numOfPlants) {
+    public Simulator(int numOfCarnivores, int numOfHerbivores, int numOfPlants)
+            throws BoardNotBigEnoughException {
         simBoard = new Board(DEFAULT_BOARD_ROWS, DEFAULT_BOARD_COLUMNS);
         simBoard.placeOrganisms(numOfCarnivores, numOfHerbivores, numOfPlants);
         System.out.println("Starting board state:");

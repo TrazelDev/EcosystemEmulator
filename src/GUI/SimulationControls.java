@@ -8,7 +8,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 
 public class SimulationControls extends HBox {
-    public SimulationControls() {
+    public SimulationControls(Runnable simulatorCreator) {
         super(10);
         this.setAlignment(Pos.CENTER_LEFT);
 
@@ -25,7 +25,7 @@ public class SimulationControls extends HBox {
         this.getChildren().add(spacer);
 
         Button btnNewSimulation = new Button("New Simulation");
-        btnNewSimulation.setOnAction(e -> {});
+        btnNewSimulation.setOnAction(e -> simulatorCreator.run());
         this.getChildren().add(btnNewSimulation);
     }
 

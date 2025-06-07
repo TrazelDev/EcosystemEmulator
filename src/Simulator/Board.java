@@ -44,11 +44,11 @@ public class Board {
 
     // Place organisms on the board
     // inputs: the number of figures of each type to be placed
-    public void placeOrganisms(int numOfCarnivores, int numOfHerbivores, int numOfPlants) {
+    public void placeOrganisms(int numOfCarnivores, int numOfHerbivores, int numOfPlants) throws BoardNotBigEnoughException {
         // Making sure that there are less than 80% organisms of total spots:
         double totalOrganisms = numOfCarnivores + numOfHerbivores + numOfPlants;
         double organismsPercentage = totalOrganisms / (rows * cols);
-        assert (organismsPercentage <= 0.8) : "There are more then 80% organisms";
+        if (organismsPercentage > 0.8) throw new BoardNotBigEnoughException();
 
         Point p;
         for (int i = 0; i < totalOrganisms; i++) {
